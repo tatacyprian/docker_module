@@ -1,10 +1,24 @@
 variable ext_port {
-  type        = list
-  default     = [320300]
-  description = "ports for container"
+  type        = map(any)
 }
-variable nodered_image {
+# variable nodered_image {
+#   type        = string
+#   default     = "nodered/node-red:latest"
+#   description = "image for container"
+# }
+
+
+variable "env" {
   type        = string
-  default     = "nodered/node-red:latest"
-  description = "image for container"
+  default     = "dev"
+  description = "Env to deploy to"
+}
+
+variable "nodered_image" {
+  type        = map
+  default     = {
+    dev = "nodered/node-red:latest"
+    prod = "nodered/node-red:latest-minimal"
+  description = "image for pods"
+  }
 }

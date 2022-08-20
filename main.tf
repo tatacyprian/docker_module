@@ -11,22 +11,22 @@ provider "docker" {
 }
 
 resource "docker_image" "nodered"{
-  name = var.nodered_image
+  name = var.nodered_image[terraform.workspace]
 }
 
 locals {
-  container_count = length(var.ext_port)
+  container_count = length(lookup(var.ext_port, terraform.workspace))
 }
 
 
 
 resource "docker_container" "nodered"{
-  name = join("_", ["nodered", random_string.random[count.index].result])
-  image = var.nodered_image
+  name = join("_", ["nodered",terraform.workspace, random_string.random[count.index].result])
+  image = docker_image.nodered.name
   count = local.container_count
   ports {
     internal = 1880
-    external = var.ext_port[count.index]
+    external = var.ext_port[terraform.workspace][count.index]
   }
   volumes {
     container_path="/data"

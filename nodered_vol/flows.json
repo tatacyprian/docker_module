@@ -1,0 +1,49 @@
+[
+    {
+        "id": "6b4f54d158f24f17",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fad5fc4adf49bca5",
+        "type": "catch",
+        "z": "6b4f54d158f24f17",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 400,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3d86a32c20e3b7ac",
+        "type": "link in",
+        "z": "6b4f54d158f24f17",
+        "name": "link in 1",
+        "links": [],
+        "x": 355,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b4291b1777b15dea",
+        "type": "link call",
+        "z": "6b4f54d158f24f17",
+        "name": "",
+        "links": [],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 530,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    }
+]
